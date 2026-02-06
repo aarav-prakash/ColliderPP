@@ -19,8 +19,8 @@ class PhysicsObject {
     PhysicsAttributes attributes;
 
    public:
-    virtual void PhysicsObject() = 0;
-    virtual void ~PhysicsObject() = 0;
+    virtual PhysicsObject() = 0;
+    virtual ~PhysicsObject() = 0;
 
     // virtual get.set;
     // apply force
@@ -30,6 +30,6 @@ class PhysicsObject {
     // bool checkCollision(PhysicsObject& other);
     // void resolveCollision(PhysicsObject& other);
 
-    virtual void update(sf::Time dt){} = 0; // do nothing :)
-    virtual void draw(sf::RenderWindow& window){} = 0;
+    virtual void update(sf::Time dt) = 0; // do nothing :)
+    virtual void draw(sf::RenderWindow& window) = 0;
 };
