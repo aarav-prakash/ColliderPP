@@ -1,12 +1,22 @@
 #include <SFML/Graphics.hpp>
 
-struct PhysicsAttributes {
+struct PhysicalAttributes {
     float mass;
     float angularMass;
-}
+    float restitution;
+
+    sf::Color color;
+};
+
+enum class ShapeID{
+    NULL_SHAPE,
+    CIRCLE_SHAPE,
+    RECTANGLE_SHAPE,
+    POLYGON_SHAPE
+};
 
 class PhysicsObject {
-   private:
+private:
     sf::Vector2f position;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
@@ -14,13 +24,13 @@ class PhysicsObject {
     float angularVelocity;
     float angularAcceleration;
 
-    sf::Color color;
+    ShapeID ID;
+    bool is_static;
+    
+    PhysicalAttributes attributes;
 
-    PhysicsAttributes attributes;
-
-   public:
-    virtual void PhysicsObject() = 0;
-    virtual void ~PhysicsObject() = 0;
+public:
+    virtual ~PhysicsObject();
 
     // virtual get.set;
     // apply force
@@ -30,6 +40,6 @@ class PhysicsObject {
     // bool checkCollision(PhysicsObject& other);
     // void resolveCollision(PhysicsObject& other);
 
-    virtual void update(sf::Time dt){} = 0; // do nothing :)
-    virtual void draw(sf::RenderWindow& window){} = 0;
+    virtual void update(sf::Time dt) = 0; // do nothing :)
+    virtual void draw(sf::RenderWindow& window) = 0;
 };
