@@ -10,6 +10,7 @@ private:
     sf::CircleShape shape;
     ShapeID ID = ShapeID::CIRCLE_SHAPE;
 
+    void sync();
 public:
     Circle(float r, sf::Vector2f position);
 

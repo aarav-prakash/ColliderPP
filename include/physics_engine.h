@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "physics_object.h"
 
-class PhysicsEngine {
+class PhysicsEngine{
 private:
   std::vector<std::unique_ptr<PhysicsObject>> objects;
   
