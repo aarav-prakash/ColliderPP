@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <vector>
+#include <SFML/Graphics.hpp>
 #include "physics_object.h"
 
 class PhysicsEngine {
@@ -10,7 +11,7 @@ private:
   
 public:
   void addObject(std::unique_ptr<PhysicsObject> obj);
-  void update(float dt);
+  void update(sf::Time dt);
   void draw(sf::RenderWindow& window);
 };
 
